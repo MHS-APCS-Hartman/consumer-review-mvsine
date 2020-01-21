@@ -165,4 +165,41 @@ public class Review {
       return randomNegativeAdj();
     }
   }
+   public static String fakeReviewStronger(String fileName)
+    {
+        String message = textToString(fileName);
+        String str = "";
+        String word = "";
+        for(int i = 0; i< message.length(); i++)
+        {
+            if(message.substring(i, i++).equals(" ") || message.substring(i, i++).equals("."))
+            {
+                String end = message.substring(i, i++);
+                if(word.startsWith("*"))
+                {
+                    double value = sentimentVal(word);
+                    if(value >= 0)
+                    {
+                        word = randomPositiveAdj();
+                    }
+                    else
+                    {
+                        word = randomNegativeAdj();
+                    }
+                    str+= word + getPunctuation(word)+ end;
+                }
+                else
+                {
+                    str += word + end;
+                }
+                word = "";
+            }
+            else
+            {
+                word += message.substring(i, i++);
+            }
+            
+        }
+        return str;
+    }
 }
