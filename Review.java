@@ -187,6 +187,5 @@ public class Review {
       }
       return totalVal;
    }
-   System.out.print(totalSentiment(“SimpleReview.txt”));
 
 }
