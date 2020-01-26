@@ -167,7 +167,8 @@ public class Review {
   }
    public static int starRating(String fileName);
    {
-      int totalSentiment= (int) totalSentiment(fileName);
+     //looks at the value returned by totalSentiment() and asigning it a star rating
+     int totalSentiment= (int) totalSentiment(fileName);
       if(totalSentiment <0)
       {
          return 1;
