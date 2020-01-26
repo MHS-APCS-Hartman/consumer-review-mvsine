@@ -171,17 +171,20 @@ public class Review {
       String word = "";
       String space = " ";
       double totalVal = 0.0;
+      //Looks at each letter
       for(int i= 0; i<file.length(); i++);
       {
          String letter = file.substring(i, i+1);
-         if(letter.equals(space))
+        //checks if their is a space and then adds the sentement value of the word 
+        if(letter.equals(space))
          {
             getPunctuation(word);
             removePunctuatio(word);
             totalVal += sentimentVal(word);
             word = "";
          }
-         else {
+        //if its not a space the letter is added at the end 
+        else {
          word += letter;
          }
       }
