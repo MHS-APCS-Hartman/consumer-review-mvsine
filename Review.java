@@ -165,7 +165,7 @@ public class Review {
       return randomNegativeAdj();
     }
   }
-  public static double totalSentimnet(String fileName)
+   public static double totalSentimnet(String fileName)
   {
       String file= textToString(fileName);
       String word = "";
