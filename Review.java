@@ -187,5 +187,24 @@ public class Review {
       }
       return totalVal;
    }
+      //looks at the value returned by totalSentiment() and asigning it a star rating
+     int totalSentiment= (int) totalSentiment(fileName);
+      if(totalSentiment <0)
+      {
+         return 1;
+      }
+      else if(totalSentimant < 5)
+      {
+         return 2;
+      }
+      else if (totalSentiment <15)
+      {
+         return 3;
+      }
+      else
+      {
+         return 4;
+       }
+   }
 
 }
