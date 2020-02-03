@@ -8,7 +8,7 @@ import java.io.*;
 /**
  * Class that contains helper methods for the Review Lab
  **/
-public class Review {
+public class Review{
   
   private static HashMap<String, Double> sentiment = new HashMap<String, Double>();
   private static ArrayList<String> posAdjectives = new ArrayList<String>();
@@ -165,19 +165,19 @@ public class Review {
       return randomNegativeAdj();
     }
   }
-   public static double totalSentimnet(String fileName)
+   public static double totalSentiment(String fileName)
   {
       String file= textToString(fileName);
       String word = "";
       String space = " ";
       double totalVal = 0.0;
-      for(int i= 0; i<file.length(); i++);
+      for(int i = 0; i < file.length(); i++)
       {
-         String letter = file.substring(i, i+1);
+        String letter = file.substring(i, i++);
          if(letter.equals(space))
          {
             getPunctuation(word);
-            removePunctuatio(word);
+            removePunctuation(word);
             totalVal += sentimentVal(word);
             word = "";
          }
@@ -188,19 +188,19 @@ public class Review {
       return totalVal;
    }
  
-  public static int starRating(String fileName);
+  public static int starRating(String fileName)
    {
      //looks at the value returned by totalSentiment() and asigning it a star rating
-     int totalSentiment= (int) totalSentiment(fileName);
-      if(totalSentiment <0)
+     double sentimentval = totalSentiment(fileName);
+      if(sentimentval < 0)
       {
          return 1;
       }
-      else if(totalSentimant < 5)
+      else if(sentimentval < 5)
       {
          return 2;
       }
-      else if (totalSentiment <15)
+      else if (sentimentval <15)
       {
          return 3;
       }
@@ -210,6 +210,7 @@ public class Review {
        }
      
    }
+
   public static String fakeReview(String fileName)
     {
         String message = textToString(fileName);
